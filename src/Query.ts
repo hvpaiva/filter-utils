@@ -1,11 +1,28 @@
 import { Order, OrderBuilder } from './Order';
 
 /**
- * Assure that the informed number is an number and an Integer.
- * @param n The number to be normalid.
+ * Params to construct the Query object.
  */
-function normalizeToInt(n: number) {
-  return n ? parseInt(n.toString(), 10) : undefined;
+export type QueryParams = {
+  /**
+   * The number of skips the query will proceed in the list.
+   * Ex.: The value 1 will ignore the first in list.
+   */
+  skip?: number;
+  /**
+   * The number of results that the query will return.
+   * Ex.: The value 10 will fetch the first 10 results.
+   */
+  take?: number;
+  /**
+   * The Order in String form. Should be composed by the field to be sorted, plus
+   * a prefix (+ or -) to asure the sort direction:
+   * Ex.:
+   * - 'createdAt' will sort in ascending direction by createdAt value.
+   * - '+createdAt' will sort in ascending direction by createdAt value.
+   * - '-createdAt' will sort in descending direction by createdAt value.
+   */
+  order?: string;
 }
 
 /**
@@ -30,7 +47,7 @@ export class Query<T> {
    */
   order?: Order<T>;
 
-  constructor(skip?: number, take?: number, order?: string) {
+  constructor({skip, take, order}: QueryParams) {
     this.skip = skip;
     this.take = take;
     this.order = order ? OrderBuilder<T>(order) : undefined;

@@ -47,7 +47,7 @@ jobs:
       - name: Installing dependencies
         run: yarn
 
-      - name: Building files
+      - name: Build
         run: yarn build
 
       - name: Release
