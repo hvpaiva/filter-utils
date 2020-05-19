@@ -8,14 +8,14 @@ describe('Test Query', () => {
       take: 0,
       order: 'field'
     });
-    const expected1 = { skip: 1, take: 0, order: { field: 'ASC' }};
+    const expected1 = { skip: 1, order: { field: 'ASC' }};
 
     const scenario2 = new Query<TestClass>({
       skip: 0,
       take: 0,
       order: 'field'
     });
-    const expected2 = { skip: 0, take: 0, order: { field: 'ASC' }} as Query<TestClass>;
+    const expected2 = { order: { field: 'ASC' }};
 
     const scenario3 = new Query<TestClass>({});
     const expected3 = { };
