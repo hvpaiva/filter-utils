@@ -3,6 +3,7 @@ import { Query } from "./Query";
 
 /**
  * Params to construct the Filter object.
+ * @since 1.0
  */
 export type FilterParams<T> = {
   /**
@@ -12,6 +13,7 @@ export type FilterParams<T> = {
    * new Person({ name: 'John', status: 'active' });
    *
    * It'll filter all Persons with name 'John' and Status 'active'.
+   * @since 1.0
    */
   model: T;
   /**
@@ -22,6 +24,7 @@ export type FilterParams<T> = {
   /**
    * The number of results fetched.
    * Ex.: The value 10 will bring only 10 results of the list.
+   * @since 1.0
    */
   limit?: number;
   /**
@@ -31,6 +34,7 @@ export type FilterParams<T> = {
    * - 'createdAt' will sort in ascending direction by createdAt value.
    * - '+createdAt' will sort in ascending direction by createdAt value.
    * - '-createdAt' will sort in descending direction by createdAt value.
+   * @since 1.0
    */
   order?: string;
 }
@@ -54,6 +58,7 @@ export type FilterParams<T> = {
  * This will create a filter that fetches all Persons that name is 'John', skipping
  * the first 5 results, and get only 10 results, sorting by birthDate in
  * ascending direction.
+ * @since 1.0
  */
 export class Filter<T> {
   /**
@@ -63,11 +68,13 @@ export class Filter<T> {
    * new Person({ name: 'John', status: 'active' });
    *
    * It'll filter all Persons with name 'John' and Status 'active'.
+   * @since 1.0
    */
   model: T;
   /**
    * The Query object.
    * @see Query
+   * @since 1.0
    */
   query?: Query<T>;
 
@@ -85,6 +92,7 @@ export class Filter<T> {
    *
    * It'll mount the object to be used in MongoRepository of the TypeOrm.
    * ATENTION: This method may not meet all use cases.
+   * @since 1.0
    */
   getTypeOrmMongoFilter(): FindManyOptions<T> | Partial<T> {
     const queriable = Object.keys(this.model)

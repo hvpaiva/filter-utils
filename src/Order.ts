@@ -1,6 +1,7 @@
 /**
  * The Order Type of a Model.
  * It's composed by a Model attribute, and an ordenation direction.
+ * @since 1.0
  */
 export type Order<T> = {
   [P in keyof T]: 'ASC' | 'DESC' | 1 | -1;
@@ -19,6 +20,7 @@ export type Order<T> = {
  * @see Order
  * @param orderStr The Order String.
  * @throws If the attribute passed is not part of the Model.
+ * @since 1.0
  */
 export function OrderBuilder<T>(orderStr: string): Order<T> | undefined {
   if (orderStr === "") return undefined;
