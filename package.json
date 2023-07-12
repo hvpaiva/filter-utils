@@ -55,7 +55,7 @@
     "husky": "^4.2.5",
     "jest": "^26.0.1",
     "lint-staged": "^10.2.4",
-    "minimist": "^1.2.5",
+    "minimist": "^1.2.6",
     "nyc": "^15.0.1",
     "prettier": "^2.0.5",
     "rollup-plugin-typescript2": "^0.27.1",
